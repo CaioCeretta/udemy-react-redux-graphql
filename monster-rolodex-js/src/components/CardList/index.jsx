@@ -1,14 +1,8 @@
-import { Component } from "react";
-import "./styles.css";
 import { CardItem } from "../CardItem";
+import "./styles.css";
 
-export class CardList extends Component {
-  render() {
-    console.log("render from cardlist");
-    console.log(this.props);
-    console.log(this.props.monsters);
-    const { monsters } = this.props;
-
+export const CardList = ({monsters}) => {
+    
     return (
       <div className="card-list">
         {
@@ -26,5 +20,4 @@ export class CardList extends Component {
         })}
       </div>
     );
-  }
 }

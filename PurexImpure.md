@@ -31,6 +31,7 @@ let c = 3;
 
 const funcB = (a, b) => 
 {
+  
   c = a + b;
 
   return a * b

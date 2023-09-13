@@ -1,15 +1,12 @@
-import { Component } from "react";
 
 import './styles.css'
 
 
-export class CardItem extends Component {
+export const CardItem = ({id, name, email}) => {
 
   
-  render() {
     console.log('render from card')
     
-    const {id, name, email} = this.props
 
     return (
       <div className='card-container'>
@@ -18,7 +15,6 @@ export class CardItem extends Component {
         <p>{email}</p>
       </div>
     )
-  }
 
 
 }
