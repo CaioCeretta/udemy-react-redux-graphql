@@ -8,10 +8,10 @@ export const Header = () => {
   return (
     <>
       <div className='navigation'>
-        <Link to='/'><img src={logo} alt="" /></Link>
+        <Link className="logo-container" to='/'><img src={logo} alt="" /></Link>
         <div className="nav-links-container">
-          <Link className="nav-link" to='/'>Home</Link>
           <Link className="nav-link" to='/shop'>Shop</Link>
+          <Link className="nav-link" to='/signin'>Sign In</Link>
         </div>
       </div>
       <Outlet />
