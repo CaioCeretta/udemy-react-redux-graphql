@@ -1,0 +1,22 @@
+.sign-in-container {
+  display: flex;
+  flex-direction: column;
+  width: 23.75rem;
+
+  h2 {
+    margin: 0.8rem 0;
+  }
+
+  .buttons-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    button {
+      & + button {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+}
