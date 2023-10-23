@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import {
   auth,
   createUserDocumentFromAuth,
@@ -9,9 +9,9 @@ import { getRedirectResult } from "firebase/auth";
 
 import Button from "../Button";
 import Input from "../Input";
- 
+
 import "./styles.scss";
-import { UserContext } from "../../contexts/user.context";
+
 
 const defaultFormFields = {
   email: "",
@@ -21,8 +21,6 @@ const defaultFormFields = {
 export const SignIn = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
-
-  const { setCurrentUser } = useContext(UserContext)
 
   useEffect(() => {
     async function getAuth() {
@@ -36,8 +34,7 @@ export const SignIn = () => {
   }, []);
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   const resetFormFields = () => {
@@ -49,7 +46,6 @@ export const SignIn = () => {
 
     try {
       const {user} = await signInAuthUserWithEmailAndPassword(email, password);
-      setCurrentUser(user)
       resetFormFields();
     } catch (e) {
       if(e.code === 'auth/wrong-password' || e.code === 'auth/user-not-found') {

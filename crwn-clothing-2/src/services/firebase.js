@@ -4,7 +4,8 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut
+  signOut,
+  onAuthStateChanged
 } from 'firebase/auth'
 
 //Firestore required functions
@@ -99,3 +100,16 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 }
 
 export const signOutUser = () => signOut(auth)
+
+export const onAuthStateChangeListener = (cb) => onAuthStateChanged(auth, cb)
+
+/**
+ * This on authStateChangedListener is behind the scenes creating a listener for us.
+ * next being the callback
+ * 
+ * and on the user.context we need to cleanup this listener, with it assigning to a const unsubscribe the return of this
+ * function.
+ * 
+ * Essentially what happens is that on the unsubscribe it will clean up this method, if a completeCallback was
+ * initialized, it would invoke it on the unsubscribe
+ */

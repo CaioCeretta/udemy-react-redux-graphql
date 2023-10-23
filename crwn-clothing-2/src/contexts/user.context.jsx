@@ -1,7 +1,13 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+import { createUserDocumentFromAuth, onAuthStateChangeListener, signOutUser } from "../services/firebase";
+
+
 
 // as the actual value we want to access
 export const UserContext = createContext({
+
+
+
   /*Usually the empty state of an object should be null, because we want to null check to define whether or not we have
   an user existing object or no object
   An empty object will still be evaluate as true
@@ -20,6 +26,19 @@ export const UserContext = createContext({
 
 //Basically this provider is essentially allowing any of its childrens to access the values inside of its useState
 export const UserProvider = ({ children }) => {
+
+  
+  useEffect(() => {
+    /* At the moment that this listener mounts, it will check the auth state automatically, when we initialize it.*/
+    const unsubscribe = onAuthStateChangeListener((user) => {
+      if(user) {
+        createUserDocumentFromAuth(user);
+      }
+      setCurrentUser(user);
+    })
+
+    return unsubscribe 
+  }, [])
   //This null is for the state, not necessarily to the context, the context needs an initial value aswell
   /* Essentially what's hapopening is we are going to create this user provider and we want to wrap it around, the
   portion of our code that matters*/

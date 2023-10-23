@@ -1,14 +1,11 @@
 import { Route, Routes } from 'react-router-dom'
 
 import { Header } from './components/Header'
+import { Shop } from './components/Shop'
 import Home from "./pages/home/home"
 import { Authentication } from './pages/authentication'
 
-export const Shop = () => {
-  return (
-    <h1>I'm the shop page</h1>
-  )
-}
+
 
 
 export const App = () => {
