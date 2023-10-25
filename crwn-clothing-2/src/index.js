@@ -22,7 +22,6 @@ root.render(
           <CartProvider>
             <App />
           </CartProvider>
-
         </ProductsProvider>
       </UserProvider>
     </BrowserRouter>
