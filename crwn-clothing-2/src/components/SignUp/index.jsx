@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../services/firebase";
+import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utils/firebase.utils";
 import Input from "../Input";
 
 import './styles.scss'

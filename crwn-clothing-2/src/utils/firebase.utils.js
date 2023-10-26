@@ -9,7 +9,7 @@ import {
 } from 'firebase/auth'
 
 //Firestore required functions
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
+import { getFirestore, doc, getDoc, setDoc, collection, writeBatch } from 'firebase/firestore'
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
 
@@ -56,6 +56,40 @@ export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider)
 export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider)
 
 export const db = getFirestore();
+
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+  
+  //This constant is holding the reference to the collection in the firestore which has this key on it
+  const collectionRef = collection(db, collectionKey);
+  /**Now we need to figure out how to store each of this objects array inside the collection because we are
+   * writring multiple different objects inside this collection, so we need to understand the concept of transactions
+   * transaction is basically a word that represents a successful unit of work to a database, but this unit it may differ
+   * it might be multiple sets of setting values into the collection.
+   * For us, we consider a successfull write to this collection if all of the documents successfully wrote to it
+   * 
+   */
+
+  /*writebatch is going to return us a batch and we must pass the db we are trying to make this batch on
+  it allows us to create a set of removes, updates, deletes, whatever, and we can attach all of those to the batch and
+  and only when we are going to fireoff this batch, the transaction will begin*/
+  const batch = writeBatch(db);
+
+  //Here we are iterating over the objectsToAdd array, creating a documen of each object title, and setting each
+  //content
+  objectsToAdd.forEach(object => {
+    const docRef = doc(collectionRef, object.title.toLowerCase())
+    batch.set(docRef, object)
+
+  })
+
+  await batch.commit();
+  console.log('done')
+
+
+   
+}
+
+
 
 export const createUserDocumentFromAuth = async (userAuth, additionalInformation) => {
 

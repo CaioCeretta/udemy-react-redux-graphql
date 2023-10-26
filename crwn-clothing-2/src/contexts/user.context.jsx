@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { createUserDocumentFromAuth, onAuthStateChangeListener, signOutUser } from "../services/firebase";
+import { createUserDocumentFromAuth, onAuthStateChangeListener, signOutUser } from "../utils/firebase.utils";
 
 
 

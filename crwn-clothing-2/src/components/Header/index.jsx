@@ -6,7 +6,7 @@ import "./styles.scss";
 import logo from "../../assets/crown.svg";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/user.context";
-import { signOutUser } from "../../services/firebase";
+import { signOutUser } from "../../utils/firebase.utils";
 import { CartDropdown } from "../CartDropdown";
 import { CartContext } from "../../contexts/cart.context";
 

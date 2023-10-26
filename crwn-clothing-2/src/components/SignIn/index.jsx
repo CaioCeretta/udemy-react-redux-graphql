@@ -4,7 +4,7 @@ import {
   createUserDocumentFromAuth,
   signInWithGooglePopup,
   signInAuthUserWithEmailAndPassword
-} from "../../services/firebase";
+} from "../../utils/firebase.utils";
 import { getRedirectResult } from "firebase/auth";
 
 import Button from "../Button";
