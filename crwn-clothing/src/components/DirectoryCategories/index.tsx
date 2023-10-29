@@ -1,4 +1,4 @@
-import CategoryItem from '../CategoryItem';
+import CategoryItem from '../DirectoryItem';
 
 import './styles.scss';
 
@@ -12,7 +12,7 @@ interface DirectoryProps {
   categories: Category[]
 }
 
-const Directory = ({ categories }: DirectoryProps) => {
+const DirectoryCategories = ({ categories }: DirectoryProps) => {
   return (
     <div className='directory-container'>
       {categories.map((category) => (
@@ -22,4 +22,4 @@ const Directory = ({ categories }: DirectoryProps) => {
   );
 };
 
-export default Directory;
+export default DirectoryCategories;

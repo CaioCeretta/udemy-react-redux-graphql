@@ -1,6 +1,6 @@
 import './styles.scss';
 
-const CategoryItem = ({ category }: {category: {title: string, imageUrl: string}}) => {
+const DirectoryItem = ({ category }: {category: {title: string, imageUrl: string}}) => {
   const { imageUrl, title } = category;
   return (
     <div className='category-container'>
@@ -10,7 +10,7 @@ const CategoryItem = ({ category }: {category: {title: string, imageUrl: string}
           backgroundImage: `url(${imageUrl})`,
         }}
       />
-      <div className='category-body-container'>
+      <div className='body'>
         <h2>{title}</h2>
         <p>Shop Now</p>
       </div>
@@ -18,4 +18,4 @@ const CategoryItem = ({ category }: {category: {title: string, imageUrl: string}
   );
 };
 
-export default CategoryItem;
+export default DirectoryItem;

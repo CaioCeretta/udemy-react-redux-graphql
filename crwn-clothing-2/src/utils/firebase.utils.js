@@ -9,7 +9,7 @@ import {
 } from 'firebase/auth'
 
 //Firestore required functions
-import { getFirestore, doc, getDoc, setDoc, collection, writeBatch } from 'firebase/firestore'
+import { getFirestore, doc, getDoc, setDoc, collection, writeBatch, query, getDocs } from 'firebase/firestore'
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
 
@@ -79,7 +79,6 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
   objectsToAdd.forEach(object => {
     const docRef = doc(collectionRef, object.title.toLowerCase())
     batch.set(docRef, object)
-
   })
 
   await batch.commit();
@@ -89,6 +88,35 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
    
 }
 
+
+export const getCategoriesAndDocuments = async () => {
+  const collectionRef = collection(db, 'categories');
+
+  const q = query(collectionRef)
+  // What we need to do with the query is to say that we want to make a query of this collectionRef
+   
+/**This gives us an object that we can get a snapshot from, a snapshot is the state of a system in a particular point in
+* time, so we create a variable which holds the variable that fetch those documents snapshots that we want
+and now it's all encapsulated in this querySnapshot, allowing us to access diferent documents */
+  const querySnapshot = await getDocs(q)
+  
+  /**
+   * If we want to utilize, querySnapshot.docs will give us an array of all those individual documents inside this
+   * collection and the snapshots are the actual
+   */
+  
+  // In this case, we are reducing over the array returned in order to finally end up with an object
+  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const { title, items } = docSnapshot.data();
+
+    acc[title.toLowerCase()] = items;
+
+    return acc;
+  }, {})
+
+  return categoryMap
+
+}
 
 
 export const createUserDocumentFromAuth = async (userAuth, additionalInformation) => {
