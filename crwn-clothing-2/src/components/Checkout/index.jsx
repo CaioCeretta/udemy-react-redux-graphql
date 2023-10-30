@@ -5,8 +5,7 @@ import "./styles.scss";
 import { CheckoutItem } from "../CheckoutItem";
 
 export default function Checkout() {
-  const { cartItems, total } =
-    useContext(CartContext);
+  const { cartItems, total } = useContext(CartContext);
 
   return (
     <div>

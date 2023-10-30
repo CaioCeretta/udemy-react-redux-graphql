@@ -2,7 +2,6 @@ import { useContext } from "react";
 import Button from "../Button";
 import "./styles.scss";
 import { CartContext } from "../../contexts/cart.context";
-import { useNavigate } from "react-router-dom";
 
 export const ProductCard = ({ product }) => {
   
