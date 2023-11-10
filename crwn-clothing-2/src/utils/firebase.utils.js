@@ -89,8 +89,8 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
 }
 
 
-export const getCategoriesAndDocuments = async () => {
-  const collectionRef = collection(db, 'categories');
+export const getCategoriesAndDocuments = async (collectionName) => {
+  const collectionRef = collection(db, collectionName);
 
   const q = query(collectionRef)
   // What we need to do with the query is to say that we want to make a query of this collectionRef
@@ -106,15 +106,20 @@ and now it's all encapsulated in this querySnapshot, allowing us to access difer
    */
   
   // In this case, we are reducing over the array returned in order to finally end up with an object
-  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-    const { title, items } = docSnapshot.data();
+  // const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+  //   const { title, items } = docSnapshot.data();
 
-    acc[title.toLowerCase()] = items;
+  //   acc[title.toLowerCase()] = items;
 
-    return acc;
-  }, {})
+  //   return acc;
+  // }, {})
 
-  return categoryMap
+  // return categoryMap
+
+  return querySnapshot.docs.map(docSnapshot => {
+    return docSnapshot.data()
+  })
+
 
 }
 
