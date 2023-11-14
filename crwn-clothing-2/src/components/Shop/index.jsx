@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
 
+import { useDispatch } from 'react-redux';
 import { Category } from "../Category";
-import { useDispatch } from 'react-redux'
 // import { useContext } from "react";
 
 // import { CategoryPreview } from "../CategoryPreview";
 
 import { Categories } from "../../pages/categories";
-import "./styles.scss";
-import { getCategoriesAndDocuments } from "../../utils/firebase.utils";
 import { setCategories } from "../../store/categories/categories.action";
+import { getCategoriesAndDocuments } from "../../utils/firebase.utils";
+import "./styles.scss";
+import { selectCartItems } from "../../store/cart/cart.selector";
 // import { CategoriesContext } from "../../contexts/categories.context";
 
 
@@ -24,13 +25,14 @@ export const Shop = () => {
     async function getCategoriesMap() {
       const categoriesArray = await getCategoriesAndDocuments('categories');
       
-      console.log(categoriesArray)
 
       dispatch(setCategories(categoriesArray))
     }
 
     getCategoriesMap();
   }, [dispatch])
+  
+
 
   // const { categoriesMap } = useContext(CategoriesContext);
   return (

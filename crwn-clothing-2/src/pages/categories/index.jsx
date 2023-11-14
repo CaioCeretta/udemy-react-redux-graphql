@@ -4,10 +4,10 @@ import { CategoryPreview } from "../../components/CategoryPreview";
 
 import "./styles.scss";
 import { useSelector } from "react-redux";
-import { selectCategories } from "../../store/categories/categories.selector";
+import { selectCategoriesMap } from "../../store/categories/categories.selector";
 
 export const Categories = () => {
-  const categoriesMap = useSelector(selectCategories)
+  const categoriesMap = useSelector(selectCategoriesMap)
 
 
   return (

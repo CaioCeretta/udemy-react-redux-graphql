@@ -1,15 +1,14 @@
-import { Outlet, Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { CartIcon } from "../CartIcon";
 
 import { useSelector } from "react-redux";
 
 
 import logo from "../../assets/crown.svg";
-import { useContext } from "react";
 import { signOutUser } from "../../utils/firebase.utils";
 import { CartDropdown } from "../CartDropdown";
 
-import { CartContext } from "../../contexts/cart.context";
+import { selectIsCartOpen } from '../../store/cart/cart.selector';
 import { selectCurrentUser } from "../../store/user/user.selector";
 
 import "./styles.scss";
@@ -24,7 +23,7 @@ export const Header = () => {
  * 
  */
   const currentUser = useSelector(selectCurrentUser)
-  const { isCartOpen } = useContext(CartContext);
+  const isCartOpen = useSelector(selectIsCartOpen)
 
   return (
     <>

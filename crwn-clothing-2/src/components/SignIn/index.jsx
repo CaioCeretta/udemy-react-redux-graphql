@@ -1,11 +1,11 @@
+import { getRedirectResult } from "firebase/auth";
 import { useEffect, useState } from "react";
 import {
   auth,
   createUserDocumentFromAuth,
-  signInWithGooglePopup,
-  signInAuthUserWithEmailAndPassword
+  signInAuthUserWithEmailAndPassword,
+  signInWithGooglePopup
 } from "../../utils/firebase.utils";
-import { getRedirectResult } from "firebase/auth";
 
 import Button from "../Button";
 import Input from "../Input";
@@ -26,7 +26,7 @@ export const SignIn = () => {
     async function getAuth() {
       const response = await getRedirectResult(auth);
       if (response) {
-        const userDocRef = await createUserDocumentFromAuth(response.user);
+        await createUserDocumentFromAuth(response.user);
       }
     }
 
@@ -45,7 +45,7 @@ export const SignIn = () => {
     e.preventDefault();
 
     try {
-      const {user} = await signInAuthUserWithEmailAndPassword(email, password);
+      await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
     } catch (e) {
       if(e.code === 'auth/wrong-password' || e.code === 'auth/user-not-found') {

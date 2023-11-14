@@ -5,12 +5,15 @@ import { useEffect, useState } from "react";
 // import { CategoriesContext } from "../../contexts/categories.context";
 import { ProductCard } from "../ProductCard";
 import { useSelector } from "react-redux";
-import { selectCategories } from "../../store/categories/categories.selector";
+import { selectCategoriesMap } from "../../store/categories/categories.selector";
 
 export const Category = () => {
   const { category } = useParams();
 
-  const categoriesMap = useSelector(selectCategories)
+  console.log('render/re-rendering category component')
+
+  const categoriesMap = useSelector(selectCategoriesMap)
+
 
   // const { categoriesMap } = useContext(CategoriesContext);
 
@@ -20,6 +23,7 @@ export const Category = () => {
   /* If we initiated the const like this, essentially, everytime this component re renders the prouducts would be gotten
   so what we instead wanna do is this way \/ */
   useEffect(() => {
+    console.log('effect fired, calling setProducts')
     setProducts(categoriesMap[category]);
   }, [category, categoriesMap]);
 

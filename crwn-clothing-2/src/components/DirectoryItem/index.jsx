@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import "./styles.scss";
 
 export function DirectoryItem({ category: { id, imageUrl, title } }) {

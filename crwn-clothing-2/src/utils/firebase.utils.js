@@ -1,17 +1,18 @@
 import {
-  getAuth, signInWithPopup,
-  signInWithRedirect,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged
-} from 'firebase/auth'
+  signInWithPopup,
+  signInWithRedirect,
+  signOut
+} from 'firebase/auth';
 
 //Firestore required functions
-import { getFirestore, doc, getDoc, setDoc, collection, writeBatch, query, getDocs } from 'firebase/firestore'
+import { collection, doc, getDoc, getDocs, getFirestore, query, setDoc, writeBatch } from 'firebase/firestore';
 // Import the functions you need from the SDKs you need
-import { initializeApp } from 'firebase/app'
+import { initializeApp } from 'firebase/app';
 
 
 
@@ -41,7 +42,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 
-const firebaseApp = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -99,6 +100,7 @@ export const getCategoriesAndDocuments = async (collectionName) => {
 * time, so we create a variable which holds the variable that fetch those documents snapshots that we want
 and now it's all encapsulated in this querySnapshot, allowing us to access diferent documents */
   const querySnapshot = await getDocs(q)
+  console.log(querySnapshot)
   
   /**
    * If we want to utilize, querySnapshot.docs will give us an array of all those individual documents inside this
