@@ -1,0 +1,14 @@
+// We can also write or own logger middlware that, in this case, would return the same thing as the redux-logger
+export const loggerMiddleware = store => next => action => {
+  if(action.type) {
+    return next(action)
+  }
+
+  console.log('type: ', action.type)
+  console.log('payload: ', action.payload)
+  console.log('currentState: ', action.getState())
+
+  next(action)
+
+  console.log('next state: ', store.getState())
+}

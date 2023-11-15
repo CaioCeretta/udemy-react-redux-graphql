@@ -1,45 +1,36 @@
 import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
-
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { Category } from "../Category";
 // import { useContext } from "react";
 
 // import { CategoryPreview } from "../CategoryPreview";
 
 import { Categories } from "../../pages/categories";
-import { setCategories } from "../../store/categories/categories.action";
-import { getCategoriesAndDocuments } from "../../utils/firebase.utils";
-import "./styles.scss";
-import { selectCartItems } from "../../store/cart/cart.selector";
-// import { CategoriesContext } from "../../contexts/categories.context";
-
-
+import {
+  fetchCategoriesAsync,
+  setCategories,
+} from "../../store/categories/categories.action";
+import "./styles.scss"// import { CategoriesContext } from "../../contexts/categories.context";
 
 export const Shop = () => {
-
   const dispatch = useDispatch();
 
   useEffect(() => {
     async function getCategoriesMap() {
-      const categoriesArray = await getCategoriesAndDocuments('categories');
-      
-
-      dispatch(setCategories(categoriesArray))
+      dispatch(fetchCategoriesAsync);
     }
 
     getCategoriesMap();
-  }, [dispatch])
-  
-
-
+  }, [dispatch]);
+ 
   // const { categoriesMap } = useContext(CategoriesContext);
   return (
-      <Routes>
-        <Route index element={<Categories />} />
-        <Route path=":category" element={<Category />} />
-      </Routes>
+    <Routes>
+      <Route index element={<Categories />} />
+      <Route path=":category" element={<Category />} />
+    </Routes>
     // <div className="shop-container">
     //   {Object.keys(categoriesMap).map((title) => {
     //     const products = categoriesMap[title];

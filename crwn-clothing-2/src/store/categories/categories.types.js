@@ -1,5 +1,8 @@
 export const CATEGORIES_ACTION_TYPES = {
-  SET_CATEGORIES: 'categories/SET_CATEGORIES'
+  SET_CATEGORIES: 'categories/SET_CATEGORIES',
+  FETCH_CATEGORIES_START: 'categories/FETCH_CATEGORIES_START',
+  FETCH_CATEGORIES_SUCCESS: 'categories/FETCH_CATEGORIES_SUCCESS',
+  FETCH_CATEGORIES_FAILED: 'categories/FETCH_CATEGORIES_FAILED'
 }
 
 //This is a way of a us telling our store what section to look out to, in this case, the categories one
