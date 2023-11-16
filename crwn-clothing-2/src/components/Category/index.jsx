@@ -36,7 +36,7 @@ export const Category = () => {
 
       <h2 className="title">{category.toUpperCase()}</h2>
       {
-        isLoading ? (<Spinner />) : (<div className="category-container">
+        isLoading ? (<div><Spinner /></div>) : (<div className="category-container">
           {products &&
             products.map((product) => (
               <ProductCard key={product.id} product={product} />
