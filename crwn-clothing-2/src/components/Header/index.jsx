@@ -1,22 +1,29 @@
-import { Outlet, Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { CartIcon } from "../CartIcon";
+
+import { useSelector } from "react-redux";
+
+
+import logo from "../../assets/crown.svg";
+import { signOutUser } from "../../utils/firebase.utils";
+import { CartDropdown } from "../CartDropdown";
+
+import { selectIsCartOpen } from '../../store/cart/cart.selector';
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 import "./styles.scss";
 
-import logo from "../../assets/crown.svg";
-import { useContext } from "react";
-import { UserContext } from "../../contexts/user.context";
-import { signOutUser } from "../../utils/firebase.utils";
-import { CartDropdown } from "../CartDropdown";
-import { CartContext } from "../../contexts/cart.context";
-
 export const Header = () => {
-  const { currentUser } = useContext(UserContext);
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext)
-
-  const signOutHandler = async () => {
-    await signOutUser();
-  };
+  /**useSelector is a hook that allows us to interact from a component with the redux store
+ * it is a hook that we pass a selector function, and this selector function it essentially extracts of the values that
+ * we want from the whole redux store, the state is one big object, which is composed by all the smaller reducers, but in
+ * the end is just an object that has these key values on them, so we actually receive, whenever we call useSelector, the
+ * entire state object, so when we want specifically the user reducer, we are going to have to say state.user, and from it
+ * we are going to walk further the current user property
+ * 
+ */
+  const currentUser = useSelector(selectCurrentUser)
+  const isCartOpen = useSelector(selectIsCartOpen)
 
   return (
     <>
@@ -29,7 +36,7 @@ export const Header = () => {
             Shop
           </Link>
           {currentUser ? (
-            <span className="nav-link" onClick={signOutHandler}>
+            <span className="nav-link" onClick={signOutUser}>
               Sign Out
             </span>
           ) : (

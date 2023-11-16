@@ -1,17 +1,18 @@
 import {
-  getAuth, signInWithPopup,
-  signInWithRedirect,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged
-} from 'firebase/auth'
+  signInWithPopup,
+  signInWithRedirect,
+  signOut
+} from 'firebase/auth';
 
 //Firestore required functions
-import { getFirestore, doc, getDoc, setDoc, collection, writeBatch, query, getDocs } from 'firebase/firestore'
+import { collection, doc, getDoc, getDocs, getFirestore, query, setDoc, writeBatch } from 'firebase/firestore';
 // Import the functions you need from the SDKs you need
-import { initializeApp } from 'firebase/app'
+import { initializeApp } from 'firebase/app';
 
 
 
@@ -41,7 +42,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 
-const firebaseApp = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -89,8 +90,8 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
 }
 
 
-export const getCategoriesAndDocuments = async () => {
-  const collectionRef = collection(db, 'categories');
+export const getCategoriesAndDocuments = async (collectionName) => {
+  const collectionRef = collection(db, collectionName);
 
   const q = query(collectionRef)
   // What we need to do with the query is to say that we want to make a query of this collectionRef
@@ -99,6 +100,7 @@ export const getCategoriesAndDocuments = async () => {
 * time, so we create a variable which holds the variable that fetch those documents snapshots that we want
 and now it's all encapsulated in this querySnapshot, allowing us to access diferent documents */
   const querySnapshot = await getDocs(q)
+  console.log(querySnapshot)
   
   /**
    * If we want to utilize, querySnapshot.docs will give us an array of all those individual documents inside this
@@ -106,15 +108,20 @@ and now it's all encapsulated in this querySnapshot, allowing us to access difer
    */
   
   // In this case, we are reducing over the array returned in order to finally end up with an object
-  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-    const { title, items } = docSnapshot.data();
+  // const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+  //   const { title, items } = docSnapshot.data();
 
-    acc[title.toLowerCase()] = items;
+  //   acc[title.toLowerCase()] = items;
 
-    return acc;
-  }, {})
+  //   return acc;
+  // }, {})
 
-  return categoryMap
+  // return categoryMap
+
+  return querySnapshot.docs.map(docSnapshot => {
+    return docSnapshot.data()
+  })
+
 
 }
 
