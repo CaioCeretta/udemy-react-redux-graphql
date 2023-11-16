@@ -52,7 +52,7 @@ But there are different types of enhancers that we can have, middlwares are just
 
  */
 
-const composeEnhancer = (process.env.NODE_ENV !== 'production' && window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__)
+const composeEnhancer = (process.env.NODE_ENV !== 'production' && window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
 const composedEnhancers = composeEnhancer(applyMiddleware(...middleWares)); 
 
 

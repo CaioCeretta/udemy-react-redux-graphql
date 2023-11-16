@@ -18,7 +18,7 @@ export const Shop = () => {
 
   useEffect(() => {
     async function getCategoriesMap() {
-      dispatch(fetchCategoriesAsync);
+      dispatch(fetchCategoriesAsync());
     }
 
     getCategoriesMap();

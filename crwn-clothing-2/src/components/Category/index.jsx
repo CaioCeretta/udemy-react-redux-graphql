@@ -13,7 +13,7 @@ export const Category = () => {
 
   console.log('render/re-rendering category component')
 
-  const categoriesMap = useSelector(selectCategoriesMap) 
+  const categoriesMap = useSelector(selectCategoriesMap)
   const isLoading = useSelector(selectCategoriesIsLoading)
 
 
@@ -29,19 +29,21 @@ export const Category = () => {
     setProducts(categoriesMap[category]);
   }, [category, categoriesMap]);
 
+  console.log(isLoading)
+
   return (
     <>
-      
+
       <h2 className="title">{category.toUpperCase()}</h2>
       {
-        isLoading ? <Spinner /> : <div className="category-container">
-        {products &&
-          products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-      </div>
-      }
-      
+        isLoading ? (<Spinner />) : (<div className="category-container">
+          {products &&
+            products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+        </div>
+        )}
+
     </>
   );
 };
