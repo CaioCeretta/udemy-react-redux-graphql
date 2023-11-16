@@ -10,7 +10,6 @@ import { Category } from "../Category";
 import { Categories } from "../../pages/categories";
 import {
   fetchCategoriesAsync,
-  setCategories,
 } from "../../store/categories/categories.action";
 import "./styles.scss"// import { CategoriesContext } from "../../contexts/categories.context";
 
