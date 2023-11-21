@@ -96,6 +96,9 @@ export const getCategoriesAndDocuments = async (collectionName) => {
   const q = query(collectionRef)
   // What we need to do with the query is to say that we want to make a query of this collectionRef
    
+
+
+  // Error example: this will throw the categories_failed action await Promise.reject(new Error('Oops, query was not successfull'))
 /**This gives us an object that we can get a snapshot from, a snapshot is the state of a system in a particular point in
 * time, so we create a variable which holds the variable that fetch those documents snapshots that we want
 and now it's all encapsulated in this querySnapshot, allowing us to access diferent documents */
@@ -138,6 +141,7 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
     const { displayName, email } = userAuth;
     const createdAt = new Date();
 
+
     try {
       await setDoc(userDocRef, {
         displayName,
@@ -151,8 +155,7 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
   }
 
 
-
-  return userDocRef;
+  return userSnapshot;
 }
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
@@ -182,3 +185,16 @@ export const onAuthStateChangeListener = (cb) => onAuthStateChanged(auth, cb)
  * Essentially what happens is that on the unsubscribe it will clean up this method, if a completeCallback was
  * initialized, it would invoke it on the unsubscribe
  */
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unsubscribe();
+        resolve(userAuth);
+      },
+      reject
+    );
+  });
+};

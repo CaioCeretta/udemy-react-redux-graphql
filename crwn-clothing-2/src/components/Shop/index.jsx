@@ -9,7 +9,7 @@ import { Category } from "../Category";
 
 import { Categories } from "../../pages/categories";
 import {
-  fetchCategoriesAsync,
+  fetchCategoriesStart,
 } from "../../store/categories/categories.action";
 import "./styles.scss"// import { CategoriesContext } from "../../contexts/categories.context";
 
@@ -17,8 +17,10 @@ export const Shop = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    /* dispatch(fetchCategoriesStart()): Dispatches the FETCH_CATEGORIES_START action immediately, but since it's
+    asynchronous, it won't block the execution of the rest of the component. The saga will handle the asynchronous logic. */
     async function getCategoriesMap() {
-      dispatch(fetchCategoriesAsync());
+      dispatch(fetchCategoriesStart());
     }
 
     getCategoriesMap();
