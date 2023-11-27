@@ -1,7 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import { CartIcon } from "../CartIcon";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 
 import logo from "../../assets/crown.svg";
@@ -12,8 +12,12 @@ import { selectIsCartOpen } from '../../store/cart/cart.selector';
 import { selectCurrentUser } from "../../store/user/user.selector";
 
 import "./styles.scss";
+import { signOutStart } from "../../store/user/user.action";
 
 export const Header = () => {
+
+  const dispatch = useDispatch();
+
   /**useSelector is a hook that allows us to interact from a component with the redux store
  * it is a hook that we pass a selector function, and this selector function it essentially extracts of the values that
  * we want from the whole redux store, the state is one big object, which is composed by all the smaller reducers, but in
@@ -24,6 +28,10 @@ export const Header = () => {
  */
   const currentUser = useSelector(selectCurrentUser)
   const isCartOpen = useSelector(selectIsCartOpen)
+
+  const signOutUser = () => {
+    dispatch(signOutStart())
+  }
 
   return (
     <>
