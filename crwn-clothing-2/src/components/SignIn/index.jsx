@@ -1,15 +1,11 @@
-import { getRedirectResult } from "firebase/auth";
-import { useEffect, useState } from "react";
-import {
-  auth,
-  createUserDocumentFromAuth,
-  signInAuthUserWithEmailAndPassword,
-  signInWithGooglePopup
-} from "../../utils/firebase.utils";
+import { useState } from "react";
+import { useDispatch } from 'react-redux';
+
 
 import Button from "../Button";
 import Input from "../Input";
 
+import { emailSignInStart, googleSignInStart } from "../../store/user/user.action";
 import "./styles.scss";
 
 
@@ -22,19 +18,11 @@ export const SignIn = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
-  useEffect(() => {
-    async function getAuth() {
-      const response = await getRedirectResult(auth);
-      if (response) {
-        await createUserDocumentFromAuth(response.user);
-      }
-    }
+  const dispatch = useDispatch();
 
-    getAuth();
-  }, []);
 
   const signInWithGoogle = async () => {
-    await signInWithGooglePopup();
+    await dispatch(googleSignInStart());
   };
 
   const resetFormFields = () => {
@@ -45,7 +33,7 @@ export const SignIn = () => {
     e.preventDefault();
 
     try {
-      await signInAuthUserWithEmailAndPassword(email, password);
+      dispatch(emailSignInStart(email, password));
       resetFormFields();
     } catch (e) {
       if(e.code === 'auth/wrong-password' || e.code === 'auth/user-not-found') {
