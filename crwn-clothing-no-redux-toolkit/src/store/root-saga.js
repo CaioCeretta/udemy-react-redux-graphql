@@ -2,6 +2,7 @@ import { all, call } from 'redux-saga/effects'
 import { categoriesSaga } from './categories/categories.saga'
 import { userSaga } from './user/user.saga'
 
+/* root saga is where encapsulate all of othe other sagas */
 
 /*This function signature, the function* is a generator function, the generator function is somewhat new that was brought
 to the javascript ecosystem, and native to js.

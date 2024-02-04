@@ -133,6 +133,8 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
 
   if (!userAuth) return;
 
+  console.log(userAuth)
+
   const userDocRef = doc(db, 'users', userAuth.uid);
 
   const userSnapshot = await getDoc(userDocRef);
@@ -159,17 +161,16 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
 }
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
-  console.log(email, password)
-
   if (!email || !password) return;
-  return await createUserWithEmailAndPassword(auth, email, password)
-}
+
+  return await createUserWithEmailAndPassword(auth, email, password);
+};
 
 export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
 
-  return await signInWithEmailAndPassword(auth, email, password)
-}
+  return await signInWithEmailAndPassword(auth, email, password);
+};
 
 export const signOutUser = () => signOut(auth)
 
@@ -195,6 +196,6 @@ export const getCurrentUser = () => {
         resolve(userAuth);
       },
       reject
-    );
-  });
-};
+    )
+  })
+}

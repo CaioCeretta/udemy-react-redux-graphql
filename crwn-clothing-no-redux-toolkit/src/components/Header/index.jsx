@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 import logo from "../../assets/crown.svg";
-import { signOutUser } from "../../utils/firebase.utils";
 import { CartDropdown } from "../CartDropdown";
 
 import { selectIsCartOpen } from '../../store/cart/cart.selector';
@@ -29,9 +28,7 @@ export const Header = () => {
   const currentUser = useSelector(selectCurrentUser)
   const isCartOpen = useSelector(selectIsCartOpen)
 
-  const signOutUser = () => {
-    dispatch(signOutStart())
-  }
+  const signOutUser = () => dispatch(signOutStart())
 
   return (
     <>

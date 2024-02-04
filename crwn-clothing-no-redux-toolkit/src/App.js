@@ -8,11 +8,13 @@ import { Authentication } from './pages/authentication'
 import Checkout from './components/Checkout'
 import { checkUserSession } from "./store/user/user.action";
 import { useDispatch } from "react-redux";
+import { getCurrentUser } from "./utils/firebase.utils";
 
 
 
 export const App = () => {
   const dispatch = useDispatch();
+  
   useEffect(() => {
     
     dispatch(checkUserSession())

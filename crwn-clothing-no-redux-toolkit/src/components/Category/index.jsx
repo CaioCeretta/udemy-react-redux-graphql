@@ -36,12 +36,16 @@ export const Category = () => {
 
       <h2 className="title">{category.toUpperCase()}</h2>
       {
-        isLoading ? (<div><Spinner /></div>) : (<div className="category-container">
-          {products &&
-            products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-        </div>
+        isLoading ? (
+          <div><Spinner /></div>
+        ) : (
+          <div className="category-container">
+            {products &&
+              products.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              )
+              )}
+          </div>
         )}
 
     </>

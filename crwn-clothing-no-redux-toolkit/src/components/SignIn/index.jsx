@@ -21,8 +21,8 @@ export const SignIn = () => {
   const dispatch = useDispatch();
 
 
-  const signInWithGoogle = async () => {
-    await dispatch(googleSignInStart());
+  const signInWithGoogle = () => {
+    dispatch(googleSignInStart());
   };
 
   const resetFormFields = () => {
@@ -36,8 +36,8 @@ export const SignIn = () => {
       dispatch(emailSignInStart(email, password));
       resetFormFields();
     } catch (e) {
-      if(e.code === 'auth/wrong-password' || e.code === 'auth/user-not-found') {
-        alert('Email or password incorrect' )
+      if (e.code === 'auth/wrong-password' || e.code === 'auth/user-not-found') {
+        alert('Email or password incorrect')
       }
       console.log(e);
     }
@@ -72,8 +72,8 @@ export const SignIn = () => {
         />
 
         <div className="buttons-container">
-        <Button buttonType={'inverted'}> Confirm </Button>
-        <Button> Reset </Button>
+          <Button buttonType={'inverted'}> Confirm </Button>
+          <Button> Reset </Button>
         </div>
 
       </form>
