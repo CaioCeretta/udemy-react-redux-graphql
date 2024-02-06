@@ -1,0 +1,248 @@
+[33mcommit 6264ae8abde95fdbabfd733c54a3bfc50511af67[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Sun Feb 4 12:05:44 2024 -0300
+
+    Recreated the sagas topic
+
+[33mcommit 73dceaadf45349faf9b6804dbf9fdcb8192e38fb[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Sun Feb 4 12:04:21 2024 -0300
+
+    Recreated the sagas topic
+
+[33mcommit 40c45f21588fd9ca1f990b63fc4e6489c38a6cf6[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Sun Feb 4 11:59:23 2024 -0300
+
+    Recreated the sagas topic
+
+[33mcommit 6ed20cd62082e4318533f62d649e5375f911b78c[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Sun Dec 3 00:12:29 2023 -0300
+
+    Created one new folder utilizing the same code, but with redux toolkit
+
+[33mcommit 987bf587ce5ebf00080bb56dac43c3747dca6395[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Mon Nov 27 15:47:31 2023 -0300
+
+    All the user state was migrated to sagas
+
+[33mcommit 898d079741d3df22f6e30f9f25f94a4b69204cc3[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Sun Nov 26 23:23:03 2023 -0300
+
+    Added sign_up_failed
+
+[33mcommit 87cccc4b4eef783df6a8d550ec9f5d0e88c4e91f[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Sun Nov 26 23:22:33 2023 -0300
+
+    Created the sign in and sign up saga actions
+
+[33mcommit 458bb05e1bb86ab320a116511f44fac28540f456[m[33m ([m[1;31morigin/crwn-clothing[m[33m, [m[1;32mcrwn-clothing[m[33m)[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Mon Nov 20 23:38:19 2023 -0300
+
+    Started migrating to user saga
+
+[33mcommit 48f99f3f5b3efbf7179c6a1abe756884f33fe5db[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Thu Nov 16 22:42:10 2023 -0300
+
+    Started redux saga
+
+[33mcommit 60e7c4726fd5350d9713d493045333f9a5ff1699[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Thu Nov 16 14:53:49 2023 -0300
+
+    Fixed the spinner
+
+[33mcommit 12256535bfd54b42e9fe688934732d13ab476565[m
+Author: CaioCeretta <caioceretta@gmail.com>
+Date:   Thu Nov 16 11:54:24 2023 -0300
+
+    .
+
+[33mcommit f1da5a73c31d8a533130ddd3304418aeafc154fa[m
+Merge: b056e277 feee31f1
+Author: Caio <caioceretta@gmail.com>
+Date:   Thu Nov 16 09:35:11 2023 -0300
+
+    Merge pull request #1 from CaioCeretta/crwn-clothing
+    
+    Crwn clothing
+
+[33mcommit feee31f1d88fe57341b7d096fdd42022c23541fc[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Thu Nov 16 09:04:46 2023 -0300
+
+    .
+
+[33mcommit 81b9eccc7018d3f4e9d1066d040208b89bc798ae[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Wed Nov 15 17:13:52 2023 -0300
+
+    Moved the reducer action from the component and started using thunks
+
+[33mcommit b81b5d632a9a0a4790f336b4405fb0bac4f8bd43[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Tue Nov 14 16:57:08 2023 -0300
+
+    Migrated the full project context to reducer
+
+[33mcommit d3f821e1099b351d405384f0df0d9dad9af4b0d6[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Fri Nov 10 00:02:17 2023 -0300
+
+    Refactored the categories context into a reducer
+
+[33mcommit 61a08c01b729ed4fed818c0169bdab0789110c7d[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Tue Nov 7 23:28:58 2023 -0300
+
+    Created the root reducer and the user reducer utilizing redux
+
+[33mcommit b056e2779ca2b7d78c23f91a3796e80d4201279c[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Sun Oct 29 23:44:16 2023 -0300
+
+    .
+
+[33mcommit 52eb7b20b6c7df4f4df1dff4ca4ef9f6fc688752[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Sun Oct 29 00:39:40 2023 -0300
+
+    Created links for each category products
+
+[33mcommit 7f2c94366ed6a468acb17b5d095cb3d5ffef2098[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Thu Oct 26 00:17:49 2023 -0300
+
+    Created and populated new collection
+
+[33mcommit 58d206a400017757043a7f664f7c91ce8877b071[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Tue Oct 24 23:53:03 2023 -0300
+
+    Finished the checkout interface
+
+[33mcommit 48308f0bcb5590447398e318fbaaa9203d216e46[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Mon Oct 23 00:08:49 2023 -0300
+
+    Started cart update functionality
+
+[33mcommit 58b85b28c71324c5f389cc36cbf25734b77d43af[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Sun Oct 22 22:59:18 2023 -0300
+
+    adding cart context and shopping icon as well as cartdown
+
+[33mcommit 914b1427d83f064e77020643eed004518025987c[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Mon Oct 16 12:05:14 2023 -0300
+
+    UserContext and SignOut
+
+[33mcommit 80b52948542cd834c3532bed9428792bda799734[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Sun Oct 15 23:14:42 2023 -0300
+
+    Started creating the UserContext
+
+[33mcommit 77ab27d691c5e4e33dfd71163ad8b1ad7206cc2b[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Sun Oct 1 15:34:51 2023 -0300
+
+    Finished styling the sign in page
+
+[33mcommit a97d60681507cef2fcc00f1e977a7229b05e2556[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Sun Oct 1 15:33:10 2023 -0300
+
+    Finished styling tge sign in page
+
+[33mcommit e76ac1bee7f9bcd63e9a1aa2b0ce844ca711edaf[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Sat Sep 30 15:19:09 2023 -0300
+
+    Created and styled sign up, input and button comp.
+
+[33mcommit a72d114b7f0032bc8b87b0a4909d840b720a7cf0[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Wed Sep 27 08:31:49 2023 -0300
+
+    Added sign in and firebase utils/libraries
+
+[33mcommit e9ad2e284df47efded411352f83eaec930415e4b[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Wed Sep 20 23:34:08 2023 -0300
+
+    Made up to navigation
+
+[33mcommit 15140ad046e921b841e45ccb092ae5ea1296ea2a[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Mon Sep 18 21:15:12 2023 -0300
+
+    Almost finish crwn and started components
+
+[33mcommit 30c8452775eaae273a73e6ac425e8e2eb0fc4f73[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Mon Sep 18 21:14:40 2023 -0300
+
+    Started crwn with js and components
+
+[33mcommit baa8068ccb7e8bb18b164cb3cdfd6a4013c63994[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Wed Sep 13 18:35:09 2023 -0300
+
+    Finished rodolex
+
+[33mcommit 56d7970f9e491899d6affa9d45ae47cfa6829946[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Wed Sep 13 00:07:45 2023 -0300
+
+    Finished rolodex and started making some updates
+
+[33mcommit fa17c5f8b5fc6f664669c086a997c70a531ea2ad[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Tue Sep 12 23:55:58 2023 -0300
+
+    Started with creating the other components as consts
+
+[33mcommit 06ed6b2a4d36848055a86491e9ba01f92d68e595[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Sat Sep 9 13:49:40 2023 -0300
+
+    Finished monster rolodex and started function section
+
+[33mcommit 250f1e3b9fe87041cf5fea0efd2669ca0add40ce[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Thu Sep 7 22:48:59 2023 -0300
+
+    added filter
+
+[33mcommit 07d06a60ff727464f0aed4ba6700e4a2788437f8[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Sun Sep 3 11:01:47 2023 -0300
+
+    Introduced state in classes, and small refresher
+
+[33mcommit f64b4fe50e7cefa2b99526d17fd309f536907549[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Fri Sep 1 23:21:26 2023 -0300
+
+    deleted
+
+[33mcommit 1c1c73bd623f6ff600f64d87b5367b255058154e[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Fri Sep 1 23:17:08 2023 -0300
+
+    Crwn Clothing
+
+[33mcommit 58b4d6fc3075af59d3ba942851fa21bbbc611134[m
+Author: Caio Ceretta <caioceretta@gmail.com>
+Date:   Thu Jul 20 12:35:51 2023 -0300
+
+    .
