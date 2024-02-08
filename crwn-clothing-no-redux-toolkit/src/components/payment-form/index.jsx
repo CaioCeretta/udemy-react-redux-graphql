@@ -59,7 +59,7 @@ const PaymentForm = () => {
 
   return (
     <div className="payment-form-container">
-      <div className='form-container' onSubmit={paymentHandler}>
+      <form className='form-container' onSubmit={paymentHandler}>
         <h2>Credit Card Payment:</h2>
         <CardElement />
         <Button
@@ -69,7 +69,7 @@ const PaymentForm = () => {
         >
           Pay Now
         </Button>
-      </div>
+      </form>
     </div> 
   );
 };

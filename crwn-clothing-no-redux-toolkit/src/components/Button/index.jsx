@@ -7,9 +7,9 @@ export const BUTTON_TYPE_CLASSES = {
   inverted: 'inverted'
 }
 
-export default function Button({ isPayment = false, children, buttonType, ...otherProps }) {
+export default function Button({ paymentLoading, isPayment = false, children, buttonType, ...otherProps }) {
   return (
-    <button className={`${isPayment ? 'payment-button' : '' } button-container ${BUTTON_TYPE_CLASSES[buttonType]}`} {...otherProps}>
+    <button disabled={paymentLoading} className={`${isPayment ? 'payment-button' : '' } button-container ${BUTTON_TYPE_CLASSES[buttonType]}`} {...otherProps}>
       {children}
     </button>
   )
