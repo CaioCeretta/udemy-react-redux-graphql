@@ -9,6 +9,8 @@ import { App } from './App';
 // import { CategoriesProvider } from './contexts/categories.context';
 import './index.scss';
 import { store, persistor } from './store/store';
+import { Elements } from '@stripe/react-stripe-js';
+import { stripePromise } from './utils/stripe/stripe.utils';
 
 
 
@@ -20,7 +22,9 @@ root.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
+          <Elements stripe={stripePromise}>
         <App />
+        </Elements>
       </BrowserRouter>
       </PersistGate>
     </Provider>
