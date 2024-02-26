@@ -24,3 +24,7 @@ export type Category = {
     CategoryItem[]
   ]
 }
+
+export type CategoryMap = {
+  [key: string]: CategoryItem[]
+}
