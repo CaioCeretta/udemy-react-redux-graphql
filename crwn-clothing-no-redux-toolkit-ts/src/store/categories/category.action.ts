@@ -3,8 +3,7 @@ import { createAction, Action, ActionWithPayload } from "../../utils/reducer/red
 
 import { CATEGORIES_ACTION_TYPES, Category } from "./category.types";
 
-// export const setCate  gories = (categoriesArray) => createAction(CATEGORIES_ACTION_TYPES.SET_CATEGORIES, categoriesArray)
-
+// export const setCategories = (categoriesArray) => createAction(CATEGORIES_ACTION_TYPES.SET_CATEGORIES, categoriesArray)
 
 /* So, as said on the reducer utils, now to do that type checking on the functions themselves
 we need to leverage something known as a type predicate, and a type predicate is basically a function that verifies whether
@@ -60,8 +59,55 @@ if(isHuman(Josh)) {
   On the reducer case, that is basically what we are going to do, we are going to narrow it so we know that the type
   we are recieving is a specific kind of an action
 }
+*/
 
 
+
+/* 
+  Now we are going to modify our code so that we leverage these to match those actions that it receives, if it is of this
+  action and we can now leverage it inside our reducer and respond it accordingly, and now are going to utilize the
+  intersection Types
+
+  Intersection Types are essentially the joining of two different types, so let's give that example again
+
+  type Human {
+    name: string
+  }
+
+  type Alien = {
+    fly: () => void
+  }
+
+  type Hybrid = Human & Alien
+
+  in this case, the ampersand is going to be the intersection keyword, and hybrid is now both a human and an alien, and
+  what this allows us to do is that is to set some variable, let's say Josh and it can be of that type Hybrid
+
+  const Josh: Hybrid = {
+     
+  }
+
+  now we can utilize both name aswell as the fly method inside of josh
+
+  the other method is the return type
+
+  type MyFunc = () => string
+
+  and if i wanted the return type of myFunc, we don't know how to get it, and the way we could get it is by using a
+  return type literal
+
+  The return type literal is an special keyword that lets us get the return type of a function and then set it to something
+
+  so this type will be equal to string
+  
+  type MyReturn = ReturnType<MyFunc>
+
+
+*/
+
+type MyFunc = () => string
+
+type MyReturn = ReturnType<MyFunc>
 
 
 

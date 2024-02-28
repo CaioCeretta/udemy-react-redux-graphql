@@ -1,22 +1,44 @@
 import { type } from "os";
 import { AnyAction } from "redux-saga";
 
-/*The any action is essentially an interface that extends upon this action type
-export interface AnyAction extends Action {
-  [extraProps: string]: any
+
+
+type Matchable<AC extends () => AnyAction> = AC & {
+  type: ReturnType<AC>['type']
+  match(action: AnyAction): action is ReturnType<AC>
 }
 
-It extends the 
-export type Action<T extends string = string> = {
-  type: T
+export function withMatcher<AC extends () => AnyAction & { type: string }>(actionCreator: AC): Matchable<AC>;
+
+export function withMatcher<AC extends (...args: any[]) => AnyAction & { type: string }>(actionCreator: AC): Matchable<AC>;
+
+export function withMatcher(actionCreator: Function) {
+  const type = actionCreator().type
+  return Object.assign(actionCreator, {
+    type,
+    match(action: AnyAction) {
+      return action.type === type
+    }
+  })
 }
-*/
 
 /* 
-  We know that the action creators below return that specific type, like, createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START)
-  will return back this specific type, and we want to leverage this function to do a check, and the way we do that
-  is attach a method on this action creator, and attach additional methods into it
- */
+
+
+Essentially what this type is doing is that, for example
+
+We have
+type FetchCategoriesStart = Action<CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START>;
+ 
+we would say
+withMatcher(fetchCategoriesSart)
+
+because the fetchCategoriesStart is an action creator of a type that extends AnyAction and the return type
+is also the type of the action creator
+
+
+*/
+
 
 
 export type ActionWithPayload<T, P> = {

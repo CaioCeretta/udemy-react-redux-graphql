@@ -16,7 +16,7 @@ import "./styles.scss"// import { CategoriesContext } from "../../contexts/categ
 export const Shop = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  useEffect(() => { 
     /* dispatch(fetchCategoriesStart()): Dispatches the FETCH_CATEGORIES_START action immediately, but since it's
     asynchronous, it won't block the execution of the rest of the component. The saga will handle the asynchronous logic. */
       dispatch(fetchCategoriesStart());
