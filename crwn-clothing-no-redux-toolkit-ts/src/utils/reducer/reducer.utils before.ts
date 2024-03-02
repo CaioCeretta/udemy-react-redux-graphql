@@ -31,13 +31,18 @@ export type Action<T extends string = string> = {
     type: ReturnType<AC>['type']
     match(action: AnyAction): action is ReturnType<AC>
   }
+/* w  Essentially what this type is doing is that, for example
 
-  /* That matchable will reach in, get the type of that type value, and set it to AC type
-  
-  So if you action creator is of FetchCategoriesStart type and it passess calling match on the action, if it passes
-  then we know for sure it's going to be of the fetch categories start action
-  
-  */
+We have
+type FetchCategoriesStart = Action<CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START>;
+ 
+we would say
+withMatcher(fetchCategoriesSart)
+
+because the fetchCategoriesStart is an action creator of a type that extends AnyAction and the return type
+is also the type of the action creator
+ */
+
 
 
 export type ActionWithPayload<T, P> = {
