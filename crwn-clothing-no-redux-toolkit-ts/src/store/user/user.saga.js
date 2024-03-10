@@ -4,7 +4,7 @@ import { USER_ACTION_TYPES } from './user.types';
 
 import { signInFailed, signInSuccess, signOutFailed, signOutSuccess, signUpFailed, signUpSuccess } from './user.action';
 
-import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth, getCurrentUser, signInAuthUserWithEmailAndPassword, signInWithGooglePopup, signOutUser } from '../../utils/firebase.utils';
+import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth, getCurrentUser, signInAuthUserWithEmailAndPassword, signInWithGooglePopup, signOutUser } from '../../utils/firebase/firebase.utils';
 
 export function* getSnapshotFromUserAuth(userAuth, additionalDetails) {
   /* Every single step that yields, we must look for being the most descriptive as possible, and in this

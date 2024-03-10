@@ -9,8 +9,8 @@ export type CartItem =  CategoryItem & {
 }
 
 export type CART_STATE = {
-  cartItems: CategoryItem[],
-  isCartOpen: boolean;
+  readonly cartItems: CategoryItem[],
+  readonly isCartOpen: boolean;
 }
 
 const CART_INITIAL_STATE: CART_STATE = {

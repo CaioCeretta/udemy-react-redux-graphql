@@ -1,4 +1,3 @@
-import { type } from "os";
 import { AnyAction } from "redux-saga";
 
 
@@ -6,6 +5,15 @@ import { AnyAction } from "redux-saga";
 type Matchable<AC extends () => AnyAction> = AC & {
   type: ReturnType<AC>['type']
   match(action: AnyAction): action is ReturnType<AC>
+}
+
+export type ActionWithPayload<T, P> = {
+  type: T;
+  payload: P;
+}
+
+export type Action<T> = {
+  type: T
 }
 
 export function withMatcher<AC extends () => AnyAction & { type: string }>(actionCreator: AC): Matchable<AC>;
@@ -23,14 +31,6 @@ export function withMatcher(actionCreator: Function) {
 }
 
 
-export type ActionWithPayload<T, P> = {
-  type: T;
-  payload: P;
-}
-
-export type Action<T> = {
-  type: T
-}
 
 export function createAction<T extends string, P>(type: T, payload: P): ActionWithPayload<T, P>
 
