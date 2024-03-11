@@ -12,7 +12,7 @@ export type CategoriesState = {
 export const CATEGORIES_INITIAL_STATE: CategoriesState = {
   categories: [],
   isLoading: false,
-  error: null
+  error: null,
 };
  
 export const categoriesReducer = (

@@ -3,13 +3,10 @@ import { AnyAction } from "redux";
 import { CategoryItem } from "../categories/category.types";
 import { setCartItems, setIsCartOpen } from "./cart.action";
 
-
-export type CartItem =  CategoryItem & {
-  qty: number 
-}
+import { CartItem } from "./cart.types";
 
 export type CART_STATE = {
-  readonly cartItems: CategoryItem[],
+  readonly cartItems: CartItem[],
   readonly isCartOpen: boolean;
 }
 

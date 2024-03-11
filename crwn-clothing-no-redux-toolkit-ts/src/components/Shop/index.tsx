@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
@@ -7,11 +7,9 @@ import { Category } from "../Category";
 
 // import { CategoryPreview } from "../CategoryPreview";
 
+import { fetchCategoriesStart } from "@/src/store/categories/category.action";
 import { Categories } from "../../pages/categories";
-import {
-  fetchCategoriesStart,
-} from "../../store/categories/categories.action";
-import "./styles.scss"// import { CategoriesContext } from "../../contexts/categories.context";
+import "./styles.scss"; // import { CategoriesContext } from "../../contexts/categories.context";
 
 export const Shop = () => {
   const dispatch = useDispatch();
