@@ -157,10 +157,7 @@ export const createUserDocumentFromAuth = async (
   userAuth: User,
   additionalInformation = {} as AdditionalInformation
 ): Promise<void | QueryDocumentSnapshot<UserData>> => {
-
   if (!userAuth) return;
-
-  console.log(userAuth)
 
   const userDocRef = doc(db, 'users', userAuth.uid);
 
@@ -170,22 +167,23 @@ export const createUserDocumentFromAuth = async (
     const { displayName, email } = userAuth;
     const createdAt = new Date();
 
-
     try {
       await setDoc(userDocRef, {
         displayName,
         email,
         createdAt,
-        ...additionalInformation
-      })
-    } catch (e) {
-      console.log('There was an error creating the user', e)
+        ...additionalInformation,
+      });
+    } catch (error) {
+      console.log('error creating the user', error);
     }
   }
 
-
   return userSnapshot as QueryDocumentSnapshot<UserData>;
-}
+};
+
+
+
 
 /* We don't need to type the return of this function because it is already saying that is either a UserCredential or
 undefined, the reason it's undefined is because we might exit early */ 

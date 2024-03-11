@@ -7,7 +7,7 @@ import { Category } from "../Category";
 
 // import { CategoryPreview } from "../CategoryPreview";
 
-import { fetchCategoriesStart } from "@/src/store/categories/category.action";
+import { fetchCategoriesStart } from "../../store/categories/category.action";
 import { Categories } from "../../pages/categories";
 import "./styles.scss"; // import { CategoriesContext } from "../../contexts/categories.context";
 
