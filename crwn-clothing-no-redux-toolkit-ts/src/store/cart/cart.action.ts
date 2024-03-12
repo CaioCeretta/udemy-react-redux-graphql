@@ -10,7 +10,7 @@ const addCartItem = (cartItems: CartItem[], productToAdd: CategoryItem): CartIte
 
   if (existingCartItem) {
     return cartItems.map(cartItem => cartItem.id === productToAdd.id
-      ? { ...cartItem, qty: cartItem.quantity + 1 }
+      ? { ...cartItem, quantity: cartItem.quantity + 1 }
       : cartItem)
   }
 
@@ -35,7 +35,7 @@ const removeCartItem = (cartItems: CartItem[], cartItemToRemove: CartItem): Cart
   // return back cartitems with matching cart item with reduced quantity
   return cartItems.map((cartItem) =>
     cartItem.id === cartItemToRemove.id
-      ? { ...cartItem, qty: cartItem.quantity - 1 }
+      ? { ...cartItem, quantity: cartItem.quantity - 1 }
       : cartItem
   );
 

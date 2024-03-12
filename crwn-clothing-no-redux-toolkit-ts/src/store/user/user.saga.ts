@@ -1,4 +1,4 @@
-import { AdditionalInformation, createAuthUserWithEmailAndPassword, createUserDocumentFromAuth, getCurrentUser, signInAuthUserWithEmailAndPassword, signInWithGooglePopup, signOutUser } from '@/src/utils/firebase/firebase.utils';
+import { AdditionalInformation, createAuthUserWithEmailAndPassword, createUserDocumentFromAuth, getCurrentUser, signInAuthUserWithEmailAndPassword, signInWithGooglePopup, signOutUser } from "../../utils/firebase/firebase.utils";
 import { all, call, put, takeLatest } from 'typed-redux-saga/macro';
 import { EmailSignInStart, SignUpStart, SignUpSuccess, signInFailed, signInSuccess, signOutFailed, signOutSuccess, signUpFailed, signUpSuccess } from './user.action';
 import { USER_ACTION_TYPES } from './user.types';

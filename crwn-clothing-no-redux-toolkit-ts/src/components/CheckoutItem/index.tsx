@@ -5,10 +5,13 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addItemToCart, clearItemFromCart, removeItemFromCart } from '../../store/cart/cart.action';
 import { selectCartItems } from "../../store/cart/cart.selector";
+import { CartItem } from "@/src/store/cart/cart.types";
 
+interface CheckoutItemProps {
+  cartItem: CartItem
+}
 
-export const CheckoutItem = ({ cartItem }) => {
-  const { name, imageUrl, price, qty } = cartItem;
+export const CheckoutItem = ({ cartItem }: CheckoutItemProps) => {
 
   const dispatch = useDispatch();
 
@@ -22,20 +25,20 @@ export const CheckoutItem = ({ cartItem }) => {
   return (
     <div className="checkout-item-container">
       <div className="image-container">
-        <img src={imageUrl} alt={name} />
+        <img src={cartItem.imageUrl} alt={cartItem.name} />
       </div>
-      <span className="name">{name}</span>
+      <span className="name">{cartItem.name}</span>
       <span className="quantity">
         <button onClick={removeItemHandler} className="arrow">
           &#10094;
         </button>
-        <span className="value">{qty}</span>
+        <span className="value">{cartItem.quantity}</span>
         <button onClick={addItemHandler} className="arrow">
           &#10095;
         </button>
 
       </span>
-      <span className="price">{price}</span>
+      <span className="price">{cartItem.price}</span>
       <div className="remove=button">
         <span onClick={clearItemHandler}>&#10005; </span>
       </div>
