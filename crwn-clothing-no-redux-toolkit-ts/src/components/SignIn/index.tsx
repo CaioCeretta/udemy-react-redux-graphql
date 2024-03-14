@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, InputHTMLAttributes, useState } from "react";
 import { useDispatch } from 'react-redux';
 
 
@@ -29,13 +29,13 @@ export const SignIn = () => {
     setFormFields(defaultFormFields);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     try {
       dispatch(emailSignInStart(email, password));
       resetFormFields();
-    } catch (e) {
+    } catch (e: any) {
       if (e.code === 'auth/wrong-password' || e.code === 'auth/user-not-found') {
         alert('Email or password incorrect')
       }
@@ -43,7 +43,7 @@ export const SignIn = () => {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
     setFormFields({ ...formFields, [name]: value });
@@ -56,24 +56,28 @@ export const SignIn = () => {
       <form onSubmit={handleSubmit}>
         <Input
           label={"email"}
-          type="email"
-          required
-          onChange={handleChange}
-          name="email"
-          value={email}
+          inputObject={{
+          type:"email",
+          required: true,
+          onChange:handleChange,
+          name:"email",
+          value:email,
+          }}
         />
         <Input
           label={"password"}
-          type="password"
-          required
-          onChange={handleChange}
-          name="password"
-          value={password}
+          inputObject={{
+          type: "password",
+          required: true,
+          onChange: handleChange,
+          name: "password",
+          value: password,
+          }}
         />
 
         <div className="buttons-container">
-          <Button buttonType={'inverted'}> Confirm </Button>
-          <Button> Reset </Button>
+          <Button type="button" buttonType={'inverted'}> Confirm </Button>
+          <Button type="button"> Reset </Button>
         </div>
 
       </form>

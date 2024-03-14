@@ -1,6 +1,14 @@
 import "./styles.scss";
 
-export function DirectoryItem({ category: { id, imageUrl, title } }) {
+interface DirectoryItemProps {
+  category: {
+    id: string;
+    imageUrl: string;
+    title: string;
+  }
+}
+
+export function DirectoryItem({ category: { id, imageUrl, title } }: DirectoryItemProps) {
   return (
     <div key={id} className="directory-item-container">
       <div

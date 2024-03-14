@@ -3,7 +3,15 @@ import { DirectoryItem } from '../DirectoryItem'
 
 import './styles.scss'
 
-export default function Directory({categories}) {
+interface DirectoryProps {
+  categories: {
+    id: string;
+    title: string;
+    imageUrl: string;
+  }[]
+}
+
+export default function Directory({ categories }: DirectoryProps) {
   return (
     <div className='directory-container'>
       {categories.map((category) => (

@@ -53,7 +53,7 @@ export const SignUp = () => {
       dispatch(signUpStart(email, password, displayName))
       resetFormFields()
 
-    } catch(error: Error) {
+    } catch(error: any) {
       if(error.code === 'auth/email-already-in-use') {
         alert('Cannot create user, email already in use')
       } else {

@@ -19,7 +19,6 @@ export const selectCategories = createSelector(
 export const selectCategoriesMap = createSelector(
   [selectCategories],
   (categoriesSlice): CategoryMap => {
-    console.log('Selector Recalculation')
 
     return categoriesSlice.reduce((acc, category) => {
     const { title, items } = category;
@@ -27,6 +26,8 @@ export const selectCategoriesMap = createSelector(
     acc[title.toLowerCase()] = items;
 
     return acc;
+
+    
   }, {} as CategoryMap)}
   /* Generally we don't want to cast some type, because we are telling typescript that this type is going to be something.
   But here with reduce we know that what we are typing is going to be this CategoryMap object, so this is a place that it

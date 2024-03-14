@@ -6,14 +6,18 @@ import { addItemToCart } from '../../store/cart/cart.action';
 
 import Button from "../Button";
 import "./styles.scss";
+import { CategoryItem } from '@/src/store/categories/category.types';
 
-export const ProductCard = ({ product }) => {
+type ProductCardProps = {
+  product: CategoryItem;
+}
+
+export const ProductCard = ({ product }: ProductCardProps) => {
+
   const { name, price, imageUrl } = product;
-
   const dispatch = useDispatch();
-  
-  const cartItems = useSelector(selectCartItems)
-  
+  const cartItems = useSelector(selectCartItems);
+
 
   const addProductToCart = () => dispatch(addItemToCart(cartItems, product))
 
@@ -25,8 +29,8 @@ export const ProductCard = ({ product }) => {
         <span className="name">{name}</span>
         <span className="price">{price}</span>
       </div>
- 
-      <Button buttonType="inverted" onClick={addProductToCart}>Add To Cart</Button>
+
+      <Button type='button' buttonType="inverted" onClick={addProductToCart}>Add To Cart</Button>
 
     </div>
   );

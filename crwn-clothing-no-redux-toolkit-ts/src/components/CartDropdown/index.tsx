@@ -22,7 +22,7 @@ export const CartDropdown = () => {
           <span className="empty-message">Your cart is empty!</span>
         )}
       </div>
-      <Button onClick={() => navigate('checkout')}>GO TO CHECKOUT</Button>
+      <Button type="button" onClick={() => navigate('checkout')}>GO TO CHECKOUT</Button>
     </div>
   );
 };
