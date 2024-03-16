@@ -9,7 +9,7 @@ import { CheckoutItem } from "../CheckoutItem";
 import "./styles.scss";
 import PaymentForm from "../payment-form";
 
-export default function Checkout() {
+export function Checkout() {
 
   const cartItems = useSelector(selectCartItems);
   const total = useSelector(selectCartTotal);

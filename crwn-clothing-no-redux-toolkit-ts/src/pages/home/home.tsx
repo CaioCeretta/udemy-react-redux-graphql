@@ -2,8 +2,14 @@ import { Outlet } from "react-router-dom";
 import "../../categories.styles.scss";
 import Directory from "../../components/Directory";
 
+interface CategoryProps {
+  id: number;
+  title: string;
+  imageUrl: string;
+}
+
 const Home = () => {
-  const categories = [
+  const categories: CategoryProps[] = [
     {
       id: 1,
       title: "Hats",

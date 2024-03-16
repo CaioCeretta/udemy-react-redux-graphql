@@ -3,12 +3,14 @@ import { DirectoryItem } from '../DirectoryItem'
 
 import './styles.scss'
 
+interface CategoryProps {
+  id: number;
+  title: string;
+  imageUrl: string;
+}
+
 interface DirectoryProps {
-  categories: {
-    id: string;
-    title: string;
-    imageUrl: string;
-  }[]
+  categories: CategoryProps[]
 }
 
 export default function Directory({ categories }: DirectoryProps) {

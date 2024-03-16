@@ -2,7 +2,7 @@ import "./styles.scss";
 
 interface DirectoryItemProps {
   category: {
-    id: string;
+    id: number;
     imageUrl: string;
     title: string;
   }
