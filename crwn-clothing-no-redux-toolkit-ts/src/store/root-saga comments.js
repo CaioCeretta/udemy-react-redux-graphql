@@ -1,6 +1,6 @@
-import { all, call } from 'redux-saga/effects'
-import { categoriesSaga } from './categories/categories.saga'
-import { userSaga } from './user/user.saga'
+// import { all, call } from 'redux-saga/effects'
+// import { categoriesSaga } from './categories/categories.saga'
+// import { userSaga } from './user/user.saga'
 
 /* root saga is where encapsulate all of othe other sagas */
 
@@ -41,7 +41,7 @@ inside of the function, and that key is called a yield
   
   yield all([call(categoriesSaga)]): Pauses the generator until the categoriesSaga is complete. It ensures that the
   categoriesSaga finishes before moving on to other sagas if any.
- */
-export function* rootSaga() {
-  yield all([call(categoriesSaga), call(userSaga)])
-}
+//  */
+// export function* rootSaga() {
+//   yield all([call(categoriesSaga), call(userSaga)])
+// }

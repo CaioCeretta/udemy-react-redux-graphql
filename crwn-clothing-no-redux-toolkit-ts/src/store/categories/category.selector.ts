@@ -1,8 +1,6 @@
-/* 
-*/
 
 
-import { createSelector } from 'reselect'
+import { createSelector } from 'reselect';
 import { CategoriesState } from './category.reducer';
 import { CategoryMap } from './category.types';
 

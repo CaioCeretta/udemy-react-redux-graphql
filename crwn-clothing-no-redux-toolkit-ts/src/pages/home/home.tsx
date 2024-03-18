@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import "../../categories.styles.scss";
+
 import Directory from "../../components/Directory";
 
 interface CategoryProps {

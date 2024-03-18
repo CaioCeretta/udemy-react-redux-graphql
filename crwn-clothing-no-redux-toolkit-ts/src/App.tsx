@@ -3,8 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 
 import { useDispatch } from "react-redux";
 // import Home from "./pages/home/home";
-import { checkUserSession } from "./store/user/user.action";
 import { Spinner } from "./components/Spinner";
+import { checkUserSession } from "./store/user/user.action";
 
 
 /* 
@@ -44,7 +44,7 @@ export const App = () => {
 
     dispatch(checkUserSession())
 
-  }, [])
+  }, [dispatch])
 
   return (
 

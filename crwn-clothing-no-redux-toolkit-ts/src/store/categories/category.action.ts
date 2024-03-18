@@ -1,5 +1,5 @@
 
-import { createAction, Action, ActionWithPayload, withMatcher } from "../../utils/reducer/reducer.utils";
+import { Action, ActionWithPayload, createAction, withMatcher } from "../../utils/reducer/reducer.utils";
 
 import { CATEGORIES_ACTION_TYPES, Category } from "./category.types";
 

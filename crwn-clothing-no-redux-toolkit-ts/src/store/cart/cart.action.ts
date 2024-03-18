@@ -1,7 +1,6 @@
 import { ActionWithPayload, createAction } from '../../utils/reducer/reducer.utils';
-import { Category, CategoryItem } from '../categories/category.types';
-import { CartItem } from './cart.types';
-import { CART_ACTION_TYPES } from './cart.types';
+import { CategoryItem } from '../categories/category.types';
+import { CART_ACTION_TYPES, CartItem } from './cart.types';
 
 import { withMatcher } from '../../utils/reducer/reducer.utils';
 

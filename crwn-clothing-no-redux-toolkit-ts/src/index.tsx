@@ -7,14 +7,14 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { App } from './App';
 // import { CategoriesProvider } from './contexts/categories.context';
-import './index.scss';
-import { store, persistor } from './store/store';
 import { Elements } from '@stripe/react-stripe-js';
+import './index.scss';
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import { persistor, store } from './store/store';
 import { stripePromise } from './utils/stripe/stripe.utils';
 
 
 
-const root = ReactDOM.createRoot(document.getElementById("root") as Element); 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -29,3 +29,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </Provider>
   </React.StrictMode>
 );
+
+serviceWorkerRegistration.register();

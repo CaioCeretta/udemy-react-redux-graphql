@@ -5,8 +5,6 @@ import { useDispatch } from "react-redux";
 import { signUpStart } from "../../store/user/user.action";
 import Button from "../Button";
 import "./styles.scss";
-import { type } from "os";
-import { error } from "console";
 
 interface FormFields {
   displayName: string;

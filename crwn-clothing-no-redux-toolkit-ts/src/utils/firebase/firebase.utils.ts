@@ -18,7 +18,6 @@ import { initializeApp } from 'firebase/app';
 
 
 import { Category } from '@/src/store/categories/category.types';
-import { useState } from 'react';
 
 
 // TODO: Add SDKs for Firebase products that you want to use
