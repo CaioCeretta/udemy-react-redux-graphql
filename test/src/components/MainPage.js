@@ -12,14 +12,13 @@ export class MainPage extends Component {
   }
 
   filterRobots = () => {
-    const { robots, searchField } = this.props;
-    return robots.filter(robot => {
-      return robot.name.toLowerCase().includes(searchField.toLowerCase());
+    return this.props.robots.filter(robot => {
+      return robot.name.toLowerCase().includes(this.props.searchField.toLowerCase());
     })
   }
 
   render() {
-    const { onSearchChange, isPending } = this.props;
+    const { robots, onSearchChange, isPending } = this.props;
 
     return (
       <div className='tc'>
