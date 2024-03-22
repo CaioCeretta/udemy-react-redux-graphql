@@ -45,7 +45,7 @@ describe('Category Component Tests', () => {
 
   })
 
-  it('Should render categories if isLoading is false and there are items present', () => {
+   it('Should render products if isLoading is false and there are items present', () => {
     renderWithProviders(<Category />, {
       preloadedState: {
         categories: {
