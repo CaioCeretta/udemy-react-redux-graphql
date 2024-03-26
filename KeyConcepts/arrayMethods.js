@@ -34,7 +34,57 @@ console.log(newArrayF)
 
 //reduce
 
+// This is one of the best array methods that we have in js
+
+const myArrayR = [1, 2, 3, 4, 5]
+
+/* If we want to add all these values together we could do a for loop and end up with some final value, or, this is the
+perfect time to use reduce, it's a great method to use when we want to do two things
+
+1 - We want to end up with one value in the end
+2 - When we want to persist the return or outcome of iterating over our elements in each iteration
+
+the first element is the accumulator doing whatever it wants based on the currentElement, and the second is the initial value of it
+
+*/
+
+const sum = myArrayR.reduce((acc, currEl) => {
+  console.log(acc)
+  return acc + currEl 
+}, 0)
+
+console.log(sum)
+
+/* we can see that the accumulator, on each iteration, is summing with the value of the currEl, being 0, 1, 3, 6, 10 and 15*/
+
 //find
+
+const myArrayFind = [1, 3, 5, 7, 9];
+
+//Find an element that correctly returns true based on the condition that we have
+
+//
+const findFive = myArrayFind.find(el => el === 5)
+
+
+//This case it would find an element with the value of five and stop it right there
+console.log(findFive)
+
+
+//This case is similar to the top one, it stops when it reaches an element that is greater than 4
+const findGtFour = myArrayFind.find(el => el > 4)
+
+console.log(findGtFour)
+
+const peopleArray = [{id: 1}, {id: 4}, {id: 7}]
+
+/* If we want to find the people array with the id of 4, we would do it like this and this would give the element
+that matches the condition */
+
+console.log(peopleArray.find(person => person.id === 4))
+
+
+
 
 //includes
 
